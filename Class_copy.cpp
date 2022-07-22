@@ -1,6 +1,5 @@
 #include <iostream>
 using namespace std;
-
 #pragma warning(suppress : 4996) // 防止strcpy()警告
 
 class Car
@@ -20,7 +19,6 @@ public:
 
         cout << "Car():c_price(price), c_length(length)" << endl;
     }
-
     // 拷贝构造函数
     // 自定义拷贝构造函数，需要自己完成成员的赋值
     // 默认构造函数时浅拷贝构造函数，对于指针变量的拷贝，浅拷贝只会传递指针变量的地址值，不会传递所指向的内容
@@ -33,7 +31,6 @@ public:
         strcpy(this->c_name, car.c_name);
         cout << "Car():(const Car &car)" << endl;
     }
-
     // 展示
     void display()
     {
@@ -45,19 +42,16 @@ public:
         c_name[0] = 'a';
     }
 };
-
 int main()
 {
     char name[] = { 'b','e','n','z','\0' };
 
     Car* car = new Car(100, name);
     Car* car1 = new Car(*car);
-
+    
     car->reset_name();
     
     car1->display();
     car->display();
     return 0;
 }
-
-
